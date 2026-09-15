@@ -1,0 +1,458 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Bullet Tech — Independent mobile software studio</title>
+<meta name="description" content="Bullet Tech is an independent mobile software studio building self-sovereign Android and iOS apps, including Loopky and Mandacaru.">
+<meta name="author" content="Bullet Tech">
+<link rel="canonical" href="https://jvsena42.github.io/">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/loopky/icon.png">
+
+<!-- Google Search Console verification: paste the meta tag from
+     Search Console > Add property > URL prefix > HTML tag, on the line below. -->
+<!-- <meta name="google-site-verification" content="PASTE_TOKEN_HERE"> -->
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Bullet Tech">
+<meta property="og:title" content="Bullet Tech — Independent mobile software studio">
+<meta property="og:description" content="Self-sovereign Android and iOS apps. Makers of Loopky and Mandacaru.">
+<meta property="og:url" content="https://jvsena42.github.io/">
+<meta name="twitter:card" content="summary">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Bullet Tech",
+  "url": "https://jvsena42.github.io/",
+  "description": "Independent mobile software studio building self-sovereign Android and iOS apps.",
+  "founder": { "@type": "Person", "name": "João Victor Sena" },
+  "sameAs": ["https://github.com/jvsena42"]
+}
+</script>
+
+<style>
+  :root{
+    color-scheme: dark;
+    --bg:#08090d;
+    --surface:#101219;
+    --surface-2:#161924;
+    --line:rgba(255,255,255,.09);
+    --line-strong:rgba(255,255,255,.16);
+    --text:#eceef4;
+    --muted:#9aa1b4;
+    --accent:#ff5a1f;
+    --loopky:#8b7bff;
+    --mandacaru:#39c27a;
+    --radius:18px;
+    --maxw:1120px;
+  }
+  *,*::before,*::after{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%; scroll-behavior:smooth}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    font-size:16px;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  body::before{
+    content:"";
+    position:fixed; inset:0; z-index:-1; pointer-events:none;
+    background:
+      radial-gradient(900px 520px at 12% -8%, rgba(255,90,31,.16), transparent 62%),
+      radial-gradient(760px 480px at 88% 4%, rgba(139,123,255,.14), transparent 60%),
+      radial-gradient(700px 500px at 50% 108%, rgba(57,194,122,.10), transparent 62%);
+  }
+  img{max-width:100%; display:block}
+  a{color:inherit}
+  h1,h2,h3{line-height:1.15; letter-spacing:-.022em; margin:0}
+  p{margin:0}
+
+  .wrap{width:100%; max-width:var(--maxw); margin-inline:auto; padding-inline:22px}
+
+  /* ---------- header ---------- */
+  header{
+    position:sticky; top:0; z-index:50;
+    padding-top:env(safe-area-inset-top,0px);
+    background:rgba(8,9,13,.78);
+    backdrop-filter:blur(14px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{display:flex; align-items:center; gap:18px; height:62px}
+  .brand{display:flex; align-items:center; gap:10px; font-weight:650; letter-spacing:-.02em; text-decoration:none}
+  .brand .mark{width:26px; height:26px; flex:none}
+  .nav ul{margin:0 0 0 auto; padding:0; list-style:none; display:flex; align-items:center; gap:22px}
+  .nav a.link{color:var(--muted); text-decoration:none; font-size:14.5px; transition:color .15s}
+  .nav a.link:hover{color:var(--text)}
+  .nav .ghbtn{
+    display:inline-flex; align-items:center; gap:7px;
+    border:1px solid var(--line-strong); border-radius:999px;
+    padding:7px 14px; font-size:14px; text-decoration:none; color:var(--text);
+    transition:border-color .15s, background .15s;
+  }
+  .nav .ghbtn:hover{background:var(--surface-2); border-color:var(--accent)}
+  @media (max-width:720px){ .nav ul li.hide-sm{display:none} }
+
+  /* ---------- hero ---------- */
+  .hero{padding:84px 0 68px}
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:9px;
+    font-size:13px; letter-spacing:.07em; text-transform:uppercase;
+    color:var(--muted); border:1px solid var(--line); border-radius:999px;
+    padding:6px 14px; background:var(--surface);
+  }
+  .eyebrow .dot{width:7px; height:7px; border-radius:50%; background:var(--accent)}
+  .hero h1{
+    margin:24px 0 0;
+    font-size:clamp(2.2rem, 6.2vw, 3.9rem);
+    font-weight:680;
+    max-width:17ch;
+  }
+  .hero h1 em{font-style:normal; color:var(--accent)}
+  .hero .lede{margin-top:20px; max-width:62ch; font-size:clamp(1rem,2.4vw,1.16rem); color:var(--muted)}
+  .cta{display:flex; flex-wrap:wrap; gap:12px; margin-top:32px}
+  .btn{
+    display:inline-flex; align-items:center; gap:9px;
+    border-radius:12px; padding:12px 20px; font-size:15px; font-weight:560;
+    text-decoration:none; border:1px solid transparent; transition:transform .15s, background .15s, border-color .15s;
+  }
+  .btn:hover{transform:translateY(-1px)}
+  .btn-primary{background:var(--accent); color:#120600}
+  .btn-primary:hover{background:#ff7442}
+  .btn-ghost{border-color:var(--line-strong); color:var(--text); background:var(--surface)}
+  .btn-ghost:hover{border-color:var(--text)}
+  .stack{display:flex; flex-wrap:wrap; gap:8px 10px; margin-top:36px; color:var(--muted); font-size:13.5px}
+  .stack span{border:1px solid var(--line); border-radius:999px; padding:5px 12px; background:rgba(255,255,255,.02)}
+
+  /* ---------- sections ---------- */
+  section{scroll-margin-top:76px}
+  .sec-head{margin-bottom:34px}
+  .sec-head .kicker{font-size:13px; letter-spacing:.09em; text-transform:uppercase; color:var(--accent); font-weight:600}
+  .sec-head h2{margin-top:10px; font-size:clamp(1.65rem,4.2vw,2.35rem); font-weight:660}
+  .sec-head p{margin-top:12px; color:var(--muted); max-width:64ch}
+  .rule{height:1px; background:var(--line); margin:0}
+
+  /* ---------- app cards ---------- */
+  .apps{padding:26px 0 10px; display:grid; gap:26px}
+  .app{
+    border:1px solid var(--line); border-radius:var(--radius);
+    background:linear-gradient(180deg, var(--surface) 0%, rgba(16,18,25,.55) 100%);
+    padding:30px; overflow:hidden; position:relative;
+  }
+  .app::after{
+    content:""; position:absolute; inset:0 0 auto 0; height:2px;
+    background:linear-gradient(90deg, var(--tint), transparent 70%);
+  }
+  .app-top{display:flex; align-items:center; gap:16px; flex-wrap:wrap}
+  .app-icon{width:60px; height:60px; border-radius:15px; border:1px solid var(--line); flex:none; background:#000}
+  .app-name{font-size:1.5rem; font-weight:660; letter-spacing:-.02em}
+  .app-tag{color:var(--tint); font-size:14.5px; font-weight:550}
+  .badge{
+    margin-left:auto; font-size:12.5px; color:var(--muted);
+    border:1px solid var(--line); border-radius:999px; padding:5px 12px; white-space:nowrap;
+  }
+  .app-body{margin-top:22px; display:grid; gap:26px; grid-template-columns:minmax(0,1fr)}
+  @media (min-width:900px){ .app-body{grid-template-columns:minmax(0,1.05fr) minmax(0,1fr); align-items:start} }
+  .app-body p{color:var(--muted)}
+  .app-body p + p{margin-top:14px}
+  .chips{display:flex; flex-wrap:wrap; gap:8px; margin-top:20px; padding:0; list-style:none}
+  .chips li{
+    font-size:13px; color:var(--text);
+    border:1px solid var(--line); border-radius:8px; padding:5px 11px;
+    background:rgba(255,255,255,.03);
+  }
+  .app-links{display:flex; flex-wrap:wrap; gap:10px; margin-top:24px}
+  .app-links a{
+    display:inline-flex; align-items:center; gap:8px; text-decoration:none;
+    font-size:14px; font-weight:550; padding:10px 16px; border-radius:11px;
+    border:1px solid var(--line-strong); background:var(--surface-2); transition:border-color .15s, transform .15s;
+  }
+  .app-links a:hover{border-color:var(--tint); transform:translateY(-1px)}
+  .shots{display:flex; gap:14px; overflow-x:auto; padding-bottom:6px; scrollbar-width:thin}
+  .shots figure{margin:0; flex:0 0 auto; width:170px}
+  .shots img{border-radius:13px; border:1px solid var(--line); width:100%; height:auto; background:#000}
+  .shots figcaption{margin-top:8px; font-size:12.5px; color:var(--muted); text-align:center}
+
+  /* ---------- about / grid ---------- */
+  .pad{padding:66px 0}
+  .cols{display:grid; gap:22px; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); margin-top:30px}
+  .card{border:1px solid var(--line); border-radius:15px; background:var(--surface); padding:24px}
+  .card h3{font-size:1.06rem; font-weight:620}
+  .card p{margin-top:10px; color:var(--muted); font-size:15px}
+
+  /* ---------- contact ---------- */
+  .contact-box{
+    margin-top:28px; border:1px solid var(--line); border-radius:var(--radius);
+    background:var(--surface); padding:30px;
+    display:flex; flex-wrap:wrap; gap:20px; align-items:center; justify-content:space-between;
+  }
+  .contact-box p{color:var(--muted); max-width:52ch}
+
+  footer{border-top:1px solid var(--line); padding:34px 0 calc(34px + env(safe-area-inset-bottom,0px)); margin-top:50px}
+  .foot{display:flex; flex-wrap:wrap; gap:14px 26px; align-items:center; justify-content:space-between; color:var(--muted); font-size:14px}
+  .foot nav{display:flex; flex-wrap:wrap; gap:18px}
+  .foot a{text-decoration:none; color:var(--muted)}
+  .foot a:hover{color:var(--text)}
+
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    *{transition:none !important}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#top">
+      <svg class="mark" viewBox="0 0 64 64" aria-hidden="true">
+        <circle cx="32" cy="32" r="13" fill="#ff5a1f"/>
+        <circle cx="32" cy="32" r="22" fill="none" stroke="#ff5a1f" stroke-opacity=".45" stroke-width="3"/>
+      </svg>
+      Bullet Tech
+    </a>
+    <ul>
+      <li><a class="link" href="#apps">Apps</a></li>
+      <li class="hide-sm"><a class="link" href="#about">About</a></li>
+      <li class="hide-sm"><a class="link" href="#privacy">Privacy</a></li>
+      <li><a class="ghbtn" href="https://github.com/jvsena42" rel="noopener">GitHub ↗</a></li>
+    </ul>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <div class="wrap hero">
+    <span class="eyebrow"><span class="dot"></span> Independent mobile studio</span>
+    <h1>Mobile software that leaves you <em>in control</em>.</h1>
+    <p class="lede">
+      Bullet Tech builds native Android and iOS apps around a simple rule: the useful part should run
+      on your device, and the data it produces should stay somewhere you hold the key to. Our work is
+      open source, so the claim is checkable rather than promised.
+    </p>
+    <div class="cta">
+      <a class="btn btn-primary" href="#apps">See our apps</a>
+      <a class="btn btn-ghost" href="https://github.com/jvsena42" rel="noopener">Browse the code ↗</a>
+    </div>
+    <div class="stack">
+      <span>Kotlin Multiplatform</span>
+      <span>Jetpack Compose</span>
+      <span>SwiftUI</span>
+      <span>Rust core libraries</span>
+      <span>Open source</span>
+    </div>
+  </div>
+
+  <hr class="rule">
+
+  <!-- APPS -->
+  <section id="apps" class="wrap pad">
+    <div class="sec-head">
+      <div class="kicker">Our apps</div>
+      <h2>Two products, one principle</h2>
+      <p>Both ship for phones and tablets, both keep their state on hardware or infrastructure the person using them owns.</p>
+    </div>
+
+    <div class="apps">
+
+      <!-- LOOPKY -->
+      <article class="app" style="--tint:var(--loopky)">
+        <div class="app-top">
+          <img class="app-icon" src="assets/loopky/icon.png" alt="Loopky app icon" width="60" height="60" loading="lazy">
+          <div>
+            <div class="app-name">Loopky</div>
+            <div class="app-tag">Learn anything, remember everything</div>
+          </div>
+          <span class="badge">Android &amp; iOS</span>
+        </div>
+
+        <div class="app-body">
+          <div>
+            <p>
+              A flashcards app that fuses TinyCards' playfulness, Anki's spaced repetition, and Pubky's
+              decentralized identity and social graph. Study queues are scheduled for you; the grade
+              buttons tell you the interval before you press them.
+            </p>
+            <p>
+              There is no Loopky account and no Loopky server. You sign in with a key held by Pubky Ring,
+              and your decks and study progress are written to a Pubky homeserver you hold the key to.
+              Built with Kotlin Multiplatform, with native SwiftUI screens on iOS and real two-pane
+              layouts on tablets.
+            </p>
+            <ul class="chips">
+              <li>Spaced repetition</li>
+              <li>Paste-to-import decks</li>
+              <li>Pubky identity</li>
+              <li>Deck discovery</li>
+              <li>Tablet layouts</li>
+            </ul>
+            <div class="app-links">
+              <a href="https://github.com/jvsena42/loopky" rel="noopener">Source on GitHub ↗</a>
+              <a href="https://github.com/jvsena42/loopky/blob/main/PRIVACY.md" rel="noopener">Privacy policy ↗</a>
+            </div>
+          </div>
+
+          <div class="shots">
+            <figure><img src="assets/loopky/01-home.png" alt="Loopky Today screen showing the daily study queue" loading="lazy"><figcaption>Today</figcaption></figure>
+            <figure><img src="assets/loopky/04-study-front.png" alt="Loopky study screen showing a card prompt" loading="lazy"><figcaption>Study</figcaption></figure>
+            <figure><img src="assets/loopky/06-discover.png" alt="Loopky Discover screen showing decks and tags" loading="lazy"><figcaption>Discover</figcaption></figure>
+          </div>
+        </div>
+      </article>
+
+      <!-- MANDACARU -->
+      <article class="app" style="--tint:var(--mandacaru)">
+        <div class="app-top">
+          <img class="app-icon" src="assets/mandacaru/icon.png" alt="Mandacaru app icon" width="60" height="60" loading="lazy">
+          <div>
+            <div class="app-name">Mandacaru 🌵</div>
+            <div class="app-tag">Your mobile Bitcoin node</div>
+          </div>
+          <span class="badge">Android</span>
+        </div>
+
+        <div class="app-body">
+          <div>
+            <p>
+              A lightweight Bitcoin validator node that runs on your phone, powered by Utreexo and
+              Floresta. Utreexo's accumulator replaces the full UTXO set with a compact proof, which
+              brings storage down from tens of gigabytes to something a handset can carry — so the
+              validating is yours, not a server's.
+            </p>
+            <p>
+              It ships a block and transaction explorer, raw transaction broadcast, peer controls, and
+              a built-in Electrum server you can pair your own wallet with. Mainnet, Testnet, Testnet4,
+              Signet and Regtest, in a Material 3 interface with light and dark themes.
+            </p>
+            <ul class="chips">
+              <li>Utreexo</li>
+              <li>Floresta</li>
+              <li>Electrum server</li>
+              <li>Block explorer</li>
+              <li>Multi-network</li>
+            </ul>
+            <div class="app-links">
+              <a href="https://github.com/jvsena42/mandacaru" rel="noopener">Source on GitHub ↗</a>
+              <a href="https://github.com/jvsena42/mandacaru/issues" rel="noopener">Report an issue ↗</a>
+            </div>
+          </div>
+
+          <div class="shots">
+            <figure><img src="assets/mandacaru/node_dark.png" alt="Mandacaru node screen showing sync status" loading="lazy"><figcaption>Node</figcaption></figure>
+            <figure><img src="assets/mandacaru/transactions_dark.png" alt="Mandacaru transactions screen" loading="lazy"><figcaption>Transactions</figcaption></figure>
+            <figure><img src="assets/mandacaru/blockchain_dark.png" alt="Mandacaru blockchain explorer screen" loading="lazy"><figcaption>Blockchain</figcaption></figure>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- ABOUT -->
+  <section id="about" class="wrap pad">
+    <div class="sec-head">
+      <div class="kicker">About</div>
+      <h2>Who is behind Bullet Tech</h2>
+      <p>
+        Bullet Tech is the independent studio of João Victor Sena, a mobile developer working on
+        Android, iOS and Kotlin Multiplatform. It exists to ship a small number of apps properly
+        rather than many quickly.
+      </p>
+    </div>
+
+    <div class="cols">
+      <div class="card">
+        <h3>Privacy by architecture</h3>
+        <p>We prefer designs where there is no central database to leak: keys on the device, state on infrastructure the user controls, no accounts to create.</p>
+      </div>
+      <div class="card">
+        <h3>Open by default</h3>
+        <p>Our apps are developed in public on GitHub. Anyone can read what the app actually does instead of taking a marketing page's word for it.</p>
+      </div>
+      <div class="card">
+        <h3>Native craft</h3>
+        <p>Jetpack Compose on Android, SwiftUI on iOS, shared logic in Kotlin Multiplatform and Rust. Adaptive layouts for phones and tablets, not stretched columns.</p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- PRIVACY -->
+  <section id="privacy" class="wrap pad">
+    <div class="sec-head">
+      <div class="kicker">Privacy</div>
+      <h2>What we collect</h2>
+      <p>
+        Bullet Tech does not operate accounts, profiles or analytics backends for the apps listed on
+        this page, and this website itself sets no cookies and embeds no trackers. Each app states its
+        own data handling in full; those statements are the authoritative policies.
+      </p>
+    </div>
+
+    <div class="cols">
+      <div class="card">
+        <h3>Loopky</h3>
+        <p>
+          No Loopky account and no Loopky server. Your identity is a key you hold in Pubky Ring, and
+          decks and study progress are written to a Pubky homeserver of your choosing.
+          <a href="https://github.com/jvsena42/loopky/blob/main/PRIVACY.md" rel="noopener">Read the full policy ↗</a>
+        </p>
+      </div>
+      <div class="card">
+        <h3>Mandacaru</h3>
+        <p>
+          The node runs on your device. It talks to the Bitcoin peer-to-peer network to sync and
+          validate blocks, and any wallet descriptors you load stay local to the phone.
+          <a href="https://github.com/jvsena42/mandacaru" rel="noopener">See the project README ↗</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- CONTACT -->
+  <section id="contact" class="wrap pad">
+    <div class="sec-head">
+      <div class="kicker">Contact</div>
+      <h2>Get in touch</h2>
+      <p>Support requests, bug reports and feature ideas all go through GitHub, where they stay public and trackable.</p>
+    </div>
+
+    <div class="contact-box">
+      <p>Open an issue on the repository of the app you are using, or reach the studio through its GitHub profile.</p>
+      <div class="app-links" style="margin-top:0">
+        <a href="https://github.com/jvsena42" rel="noopener" style="--tint:var(--accent)">GitHub profile ↗</a>
+        <a href="https://github.com/jvsena42/loopky/issues" rel="noopener" style="--tint:var(--loopky)">Loopky issues ↗</a>
+        <a href="https://github.com/jvsena42/mandacaru/issues" rel="noopener" style="--tint:var(--mandacaru)">Mandacaru issues ↗</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div>© <span id="year">2026</span> Bullet Tech — built by João Victor Sena</div>
+    <nav>
+      <a href="#apps">Apps</a>
+      <a href="#about">About</a>
+      <a href="#privacy">Privacy</a>
+      <a href="#contact">Contact</a>
+      <a href="https://github.com/jvsena42" rel="noopener">GitHub</a>
+    </nav>
+  </div>
+</footer>
+
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
